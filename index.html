@@ -15,18 +15,20 @@
 <body>
 
     <header>
-    <h1>Student Budget Manager</h1>
+        <h1>Student Budget Manager</h1>
         <button id="themeBtn">Dark Mode</button>
     </header>
 
-    <nav class="topnav">
-        <button onclick="showSection('dashboard')">Dashboard</button>
-        <button onclick="showSection('expenses')">Expenses</button>
-        <button onclick="showSection('analytics')">Analytics</button>
-    </nav>
+<nav class="topnav">
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('expenses')">Expenses</button>
+    <button onclick="showSection('analytics')">Analytics</button>
+    <button onclick="showSection('registration')">Registration</button>
+</nav>
 
     <main>
 
+        <!-- DASHBOARD -->
         <section id="dashboard">
 
             <div class="cards">
@@ -49,10 +51,20 @@
             </div>
 
             <div class="budget-card">
-                <label for="budget" style="color:rgba(0,0,0,0.75);">Set Monthly Budget</label>
-                <input type="number" id="budget" placeholder="Enter Monthly Budget">
+                <label for="budget" class="budget-label">
+                    Set Monthly Budget
+                </label>
 
-                <h3 style="margin-top:14px;color:#222">Budget Usage</h3>
+                <input
+                    type="number"
+                    id="budget"
+                    placeholder="Enter Monthly Budget"
+                >
+
+                <h3 class="budget-usage-heading">
+                    Budget Usage
+                </h3>
+
                 <div class="progress-container">
                     <div id="progressBar"></div>
                 </div>
@@ -60,6 +72,7 @@
 
         </section>
 
+        <!-- EXPENSES -->
         <section id="expenses">
 
             <div class="expense-form">
@@ -68,11 +81,22 @@
 
                 <form id="expenseForm">
 
-                    <input type="text" id="expenseName" placeholder="Expense Name">
+                    <input
+                        type="text"
+                        id="expenseName"
+                        placeholder="Expense Name"
+                    >
 
-                    <input type="date" id="expenseDate" placeholder="Date">
+                    <input
+                        type="date"
+                        id="expenseDate"
+                    >
 
-                    <input type="number" id="expenseAmount" placeholder="Amount">
+                    <input
+                        type="number"
+                        id="expenseAmount"
+                        placeholder="Amount"
+                    >
 
                     <select id="expenseCategory">
                         <option value="">Select Category</option>
@@ -82,7 +106,9 @@
                         <option>Entertainment</option>
                     </select>
 
-                    <button type="submit">Add Expense</button>
+                    <button type="submit">
+                        Add Expense
+                    </button>
 
                 </form>
 
@@ -92,8 +118,14 @@
 
                 <h2>Transactions</h2>
 
-                <input type="text" id="searchExpense" placeholder="Search Expense">
-                <div style="display:flex;gap:10px;margin-top:12px;align-items:center;">
+                <input
+                    type="text"
+                    id="searchExpense"
+                    placeholder="Search Expense"
+                >
+
+                <div class="filter-report-container">
+
                     <select id="filterCategory">
                         <option value="All">All</option>
                         <option value="Food">Food</option>
@@ -101,11 +133,19 @@
                         <option value="Shopping">Shopping</option>
                         <option value="Entertainment">Entertainment</option>
                     </select>
-                    <button id="generateReport">Generate Report</button>
-                    <button id="downloadReport">Download Report</button>
+
+                    <button id="generateReport">
+                        Generate Report
+                    </button>
+
+                    <button id="downloadReport">
+                        Download Report
+                    </button>
+
                 </div>
 
                 <table id="expenseTable">
+
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -115,15 +155,20 @@
                             <th>Action</th>
                         </tr>
                     </thead>
+
                     <tbody id="expenseList"></tbody>
+
                 </table>
 
-                <p id="emptyMessage">No expenses added yet.</p>
+                <p id="emptyMessage">
+                    No expenses added yet.
+                </p>
 
             </div>
 
         </section>
 
+        <!-- ANALYTICS -->
         <section id="analytics">
 
             <div class="chart-container">
@@ -131,29 +176,125 @@
             </div>
 
             <div class="analytics-grid">
-                <div class="mini-card">Food: <span id="foodTotal">0</span></div>
-                <div class="mini-card">Travel: <span id="travelTotal">0</span></div>
-                <div class="mini-card">Shopping: <span id="shoppingTotal">0</span></div>
-                <div class="mini-card">Entertainment: <span id="entertainmentTotal">0</span></div>
+                <div class="mini-card">
+                    Food:
+                    <span id="foodTotal">0</span>
+                </div>
+
+                <div class="mini-card">
+                    Travel:
+                    <span id="travelTotal">0</span>
+                </div>
+
+                <div class="mini-card">
+                    Shopping:
+                    <span id="shoppingTotal">0</span>
+                </div>
+
+                <div class="mini-card">
+                    Entertainment:
+                    <span id="entertainmentTotal">0</span>
+                </div>
             </div>
 
             <div class="insights" style="margin-top:18px;">
                 <h3>Smart Spending Insights</h3>
-                <p id="insightText">No insights yet.</p>
+                <p id="insightText">
+                    No insights yet.
+                </p>
             </div>
 
-            <div class="recommendations" style="margin-top:12px;">
+            <div class="recommendations">
                 <h3>Smart Recommendations</h3>
                 <ul id="recommendationList">
-                    <li id="recommendationText">No recommendations yet.</li>
+                    <li id="recommendationText">
+                        No recommendations yet.
+                    </li>
                 </ul>
             </div>
 
             <div class="stats">
                 <h2>Statistics</h2>
-                <p>Highest Expense: <span id="highestExpense">0</span></p>
-                <p>Lowest Expense: <span id="lowestExpense">0</span></p>
-                <p>Average Expense: <span id="averageExpense">0</span></p>
+
+                <p>
+                    Highest Expense:
+                    <span id="highestExpense">0</span>
+                </p>
+
+                <p>
+                    Lowest Expense:
+                    <span id="lowestExpense">0</span>
+                </p>
+
+                <p>
+                    Average Expense:
+                    <span id="averageExpense">0</span>
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- REGISTRATION PAGE -->
+        <section id="registration">
+
+            <div class="expense-form">
+
+                <h2>Student Registration</h2>
+
+                <form id="registrationForm">
+
+                    <input
+                        type="text"
+                        id="regName"
+                        placeholder="Enter Full Name"
+                    >
+
+                    <input
+                        type="email"
+                        id="regEmail"
+                        placeholder="Enter Email"
+                    >
+
+                    <input
+                        type="password"
+                        id="regPassword"
+                        placeholder="Enter Password"
+                    >
+
+                    <input
+                        type="date"
+                        id="regDob"
+                    >
+
+                    <select id="regCourse">
+                        <option value="">
+                            Select Course
+                        </option>
+                        <option>MCA</option>
+                        <option>BCA</option>
+                        <option>MBA</option>
+                        <option>BTech</option>
+                    </select>
+
+                    <input
+                        type="file"
+                        id="regPhoto"
+                        accept="image/*"
+                    >
+
+                    <button type="submit">
+                        Register
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div
+                id="registrationCard"
+                class="expense-list hidden"
+            >
             </div>
 
         </section>
@@ -164,6 +305,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 
-</body>
-
-</html>
+ </body>
+</html> 

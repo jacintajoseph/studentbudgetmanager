@@ -595,3 +595,82 @@ function updateStatistics(){
     averageExpense.textContent = `₹${average.toFixed(2)}`;
 
 }
+
+// ======================
+// REGISTRATION PAGE CODE
+// ======================
+
+const registrationForm =
+    document.getElementById("registrationForm");
+
+const registrationCard =
+    document.getElementById("registrationCard");
+
+if (registrationForm) {
+
+    registrationForm.addEventListener(
+        "submit",
+        (event) => {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("regName").value.trim();
+
+            const email =
+                document.getElementById("regEmail").value.trim();
+
+            const password =
+                document.getElementById("regPassword").value;
+
+            const dob =
+                document.getElementById("regDob").value;
+
+            const course =
+                document.getElementById("regCourse").value;
+
+            const photo =
+                document.getElementById("regPhoto").files[0];
+
+            // Validation
+            if (
+                name === "" ||
+                email === "" ||
+                password === "" ||
+                dob === "" ||
+                course === "" ||
+                !photo
+            ) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            const imageURL =
+                URL.createObjectURL(photo);
+
+            registrationCard.style.display = "block";
+
+            registrationCard.innerHTML = `
+                <h2>Registration Details</h2>
+
+                <img
+                    src="${imageURL}"
+                    class="registration-image"
+                >
+
+                <p><strong>Name:</strong> ${name}</p>
+
+                <p><strong>Email:</strong> ${email}</p>
+
+                <p><strong>Password:</strong> ${password}</p>
+
+                <p><strong>Date of Birth:</strong> ${dob}</p>
+
+                <p><strong>Course:</strong> ${course}</p>
+            `;
+
+            registrationForm.reset();
+        }
+    );
+
+}

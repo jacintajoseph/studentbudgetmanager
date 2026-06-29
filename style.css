@@ -314,3 +314,18 @@ td{
 section{ display:none; }
 
 /* show dashboard by default via JS */
+.registration-image{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-top:15px;
+}
+
+#registrationCard{
+    margin-top:20px;
+}
+
+#registrationCard p{
+    margin-top:10px;
+}
